@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
+  
+  get 'search/:term[/:page]' => 'home#search'
+  
   get 'link/new' => 'link#new'
   post 'link' => 'link#create'
   get 'link/:id/refine' => 'link#refine'
