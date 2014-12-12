@@ -29,3 +29,16 @@ header img {
 	text-align: center;
 	float:left;
 } 
+
+#mainContent {
+	margin-top:25px;
+}
+
+footer {
+	width:100%;
+	height:25px;
+}
+
+footer a {
+	display:inline-block;
+}
