@@ -7,8 +7,8 @@ App to scrape Thinkful's Slack for useful and interesting links
 
 Any contributions to the project are welcome. Amazing applications are made when people get together and collaborate, sharing all ideas, and putting them into awesome code. No idea is too small, and no contribution is unwelcome. If you would like to help please fork the project to your account, make your changes, and submit a pull request! (If you need help with this process, please ask in the open-source community) For instructions read the section at the bottom of this readme.
 
-## Sections of the project
-
+Sections of the project
+=======================
  ### UI
  Allows users to look up links that we have scraped
  * Search for links by poster, keywords, domain name, and channel
@@ -26,8 +26,8 @@ Any contributions to the project are welcome. Amazing applications are made when
  * Uses a headless browser (PhantomJS)
  * Navigate all new links and cache metadata
 
-## Things we need (recommended course knowledge)
-
+Things we need (recommended course knowledge)
+=============================================
  ### UI (Front-End/Design/UX/Rails)
  * Wireframes of site layout
  * Design plans (theme, feel, etc)
