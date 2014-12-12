@@ -108,3 +108,8 @@ Now if you are happy with your work and you would like to contribute it to the T
 2. Click on the green button with two circling arrows (the one that wasn't there before)
 3. Leave a message about what you are contributing
 4. Your pull request will be merged in once approved
+
+## FAQ / Troubleshooting
+
+Q: Big red screen with a message about "Migrations" or something like that...
+A: Run `rake db:migrate`
