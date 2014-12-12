@@ -9,5 +9,6 @@ class Link < ActiveRecord::Base
   # created_at:datetime NOT NULL
   # updated_at:datetime NOT NULL
   
-  has_many :keywords
+  has_many :keywords_links
+  has_many :keywords, through: :keywords_links
 end
