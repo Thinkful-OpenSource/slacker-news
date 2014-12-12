@@ -5,7 +5,7 @@ App to scrape Thinkful's Slack for useful and interesting links
 
 ## Contributing
 
-Any contributions to the project are welcome. Amazing applications are made when people get together and collaborate, sharing all ideas, and putting them into awesome code. No idea is too small, and no contribution is unwelcome. If you would like to help please fork the project to your account, make your changes, and submit a pull request! (If you need help with this process, please ask in the open-source community). For instructions read the section at the bottom of this readme.
+Any contributions to the project are welcome. Amazing applications are made when people get together and collaborate, sharing all ideas, and putting them into awesome code. No idea is too small, and no contribution is unwelcome. If you would like to help please fork the project to your account, make your changes, and submit a pull request! (If you need help with this process, please ask in the [open-source community](https://thinkful-students.slack.com/messages/open-source/)). For instructions read the section at the bottom of this readme.
 
 ##Sections of the project
 
@@ -58,7 +58,7 @@ This is a Rails 4.2.0.rc2 application.
 
 This is a Rails application. The following instructions will get you started, but will not explain how rails works. This is intentional.
 
-1. Installing Rails on your computer can be really simple, but can also be really tricky if it goes wrong. For simplicity's sake please create an account and start a Rails box at http://Nitrous.io. (This also allows for collaborative editing where more than one can be working on the same box together and it has a chat feature. This can be really cool and may help in the development of this project.)
+1. Installing Rails on your computer can be really simple, but can also be really tricky if it goes wrong. For simplicity's sake please create a free account and start a Rails box at http://Nitrous.io. (This also allows for collaborative editing where more than one person can work on the same box together and it has a chat feature. This can be really cool and may help in the development of this project.)
 
 2. Once your box is done being created, open the IDE and run the following commands in order (some may take awhile, wait for them to finish, I promise it didn't freeze):
 
