@@ -75,6 +75,7 @@ header {
 header img {
 	width:20%;
 	float:left;
+  height:200px;
 }
 
 #headerText {
@@ -101,8 +102,30 @@ footer ul {
 
 footer li {
 	display: inline-block;
+	text-align: center;
+  width:30%;
 }
 
-footer a {
-	text-align: center;
+h2 {
+  text-align:center;
+}
+
+#searchBar {
+  width:30%;
+  margin:20px auto;
+}
+
+input {
+  position:relative;
+  margin-left:10%;
+  width:70%;
+}
+
+#searchResults {
+  width:50%;
+  margin:0 auto;
+}
+
+.moreInfo {
+  float:right;
 }
