@@ -84,3 +84,27 @@ To stop the server press `Ctl + C` in the console. If you hit an error in the co
  * CSS : `app/assets/stylesheets/`
  * JS  : `app/assets/javascripts/`
  * HTML: `app/views/` This can be the tricky one, since views map to routes in rails (kind-of). But this is the folder where you'll find them.
+
+## Workflow
+
+Contributing to this open source application is different than working on your own repo. There are extra steps. Here is a step by step guide to get you setup.
+
+1. On GitHub go to https://github.com/Thinkful/slacker-news (make sure you're signed in) and click on the fork button to clone the repo to your account.
+2. Next clone the project to Nitrous or your computer with `git clone https://github.com/<YourUsername>/slacker-news`
+3. Establish a remote for pulling updates from the master by running `git add remote upstream https://github.com/Thinkful/slacker-news`
+
+Now you are all setup to do work on the project. To save your changes run the following commands:
+
+```
+git pull upstream master
+git add -A
+git commit -m "Your commit message (please try to be descriptive, other team members will see this)"
+git push origin master
+```
+
+Now if you are happy with your work and you would like to contribute it to the Thinkful repo:
+
+1. Go to your repo on GitHub
+2. Click on the green button with two circling arrows (the one that wasn't there before)
+3. Leave a message about what you are contributing
+4. Your pull request will be merged in once approved
