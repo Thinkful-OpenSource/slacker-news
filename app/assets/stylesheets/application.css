@@ -70,18 +70,29 @@ table {
 header {
 	width:100%;
 	height:200px;
+  margin-top:25px;
 }
 
 header img {
 	width:20%;
 	float:left;
+  height:75px;
 }
 
 #headerText {
+  margin-top:55px;
 	width:60%;
 	text-align: center;
 	float:left;
 } 
+
+#headerText h1 {
+  font-size:2em;
+}
+
+#headerText p {
+  font-size:1em;
+}
 
 #mainContent {
 	margin-top:25px;
@@ -101,8 +112,31 @@ footer ul {
 
 footer li {
 	display: inline-block;
+	text-align: center;
+  width:30%;
 }
 
-footer a {
-	text-align: center;
+#searchHeading {
+  font-size:1.5em;
+  text-align:center;
+}
+
+#searchBar {
+  width:30%;
+  margin:20px auto;
+}
+
+input {
+  position:relative;
+  margin-left:10%;
+  width:70%;
+}
+
+#searchResults {
+  width:50%;
+  margin:0 auto;
+}
+
+.moreInfo {
+  float:right;
 }
