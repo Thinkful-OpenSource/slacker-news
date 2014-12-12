@@ -56,7 +56,7 @@ This is a Rails 4.2.0.rc2 application.
 
 ### For Front End Students:
 
-This is a Rails application. The following instructions will get you started, but will not explain how rails works. This is intentional.
+This is a Rails application. The following instructions will get you started, but will not explain how rails works.
 
 1. Installing Rails on your computer can be really simple, but can also be really tricky if it goes wrong. For simplicity's sake please create a free account and start a Rails box at http://Nitrous.io. (This also allows for collaborative editing where more than one person can work on the same box together and it has a chat feature. This can be really cool and may help in the development of this project.)
 
