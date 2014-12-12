@@ -111,5 +111,5 @@ Now if you are happy with your work and you would like to contribute it to the T
 
 ## FAQ / Troubleshooting
 
-Q: Big red screen with a message about "Migrations" or something like that...
-A: Run `rake db:migrate`
+* Q: Big red screen with a message about "Migrations" or something like that...
+* A: Run `rake db:migrate`
