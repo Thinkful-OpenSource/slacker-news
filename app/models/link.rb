@@ -1,4 +1,5 @@
 class Link < ActiveRecord::Base
+  # id:integer NOT NULL
   # title:string
   # url:string NOT NULL - The link URL
   # domain:string NOT NULL - The domain of the link url

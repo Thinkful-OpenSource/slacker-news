@@ -3,7 +3,8 @@ class HomeController < ApplicationController
     #Load 20-50 latest links (or HOTTEST links) - Need data-science on this aspect
   end
   
-  def search # AJAX - Return JSON
-    #Return up to 50 results that match... Might be able to limit that down a little more.
+  # AJAX - Return JSON
+  def search # (term, page)
+    #Return up to 20 results that match... 
   end
 end
