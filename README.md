@@ -46,6 +46,7 @@ Any contributions to the project are welcome. Amazing applications are made when
  * Navigate to URL in phantomJS
  * Pull information from facebook/twitter/youtube/other `<meta>` tags
  * (Data-Science) Recommendations on other things that we can use?
+ * [How to run phantomjs on Heroku](https://github.com/stomita/heroku-buildpack-phantomjs)
 
 ## Instructions
 
