@@ -7,7 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<header>
+	<div id="pageContent">
+  <header>
 		<img src="<%= image_path('slack.png') %>" alt="slack logo">
 		<div id="headerText">
 			<h1>Slacker News</h1>
@@ -18,11 +19,12 @@
 	<div id="mainContent">
 		<%= yield %>
 	</div>
+  </div>
 	<footer>
 	  <ul>
-		<li><a href="<%= url_for controller: 'home', action: 'index' %>">Home</a></li>
+		  <li><a href="<%= url_for controller: 'home', action: 'index' %>">Home</a></li>
       <li><a href="<%= url_for controller: 'bug', action: 'index' %>">Report a Bug</a></li>
-		<li><a href="http://www.thinkful.com">Thinkful</a></li>
+		  <li><a href="http://www.thinkful.com">Thinkful</a></li>
 	  </ul>
 	</footer>
 </body>
