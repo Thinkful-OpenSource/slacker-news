@@ -64,6 +64,11 @@ table {
 	border-spacing: 0;
 }
 
+button {
+  cursor:pointer;
+  outline:none;
+}
+
 /*end reset*/
 
 
@@ -154,6 +159,15 @@ footer img {
   position:fixed;
   top:30%;
   left:35%;
+  padding:10px;
+}
+
+#addLinkForm p {
+  cursor:pointer;
+  position:absolute;
+  top:5px;
+  right:10px;
+  font-size:1.5em;
 }
 
 input {

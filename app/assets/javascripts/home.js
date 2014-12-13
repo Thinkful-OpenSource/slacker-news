@@ -40,6 +40,9 @@ $(function(){
   addLink.click(function(){
     $('#addLinkForm').show();
   })
+  $('#addLinkForm p').click(function(){
+    $('#addLinkForm').hide();
+  })
   $('#linkAddSubmit').click(function(){
     var newLink = {
       
