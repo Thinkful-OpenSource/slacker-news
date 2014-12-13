@@ -5,4 +5,16 @@ $(function(){
   $("#suggestEdit").click(function(){
     $("#linkEdit").show(); 
   });
+  $("#linkEditSubmit").click(function(){ 
+    var changes = {
+      title: $("input[name='title']").val(),
+      keywords: $("input[name='tags']").val()
+    }
+    
+    $.ajax({
+        url: '/link',
+        type: 'POST',
+        data: {link: changes}
+      });
+  });
 });
