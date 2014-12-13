@@ -8,6 +8,6 @@ class Keyword < ActiveRecord::Base
   has_many :links, through: :keywords_links
   
   def self.search(term)
-      return self.where("name LIKE ?", "%#{term}%")
+    return self.where("name LIKE ?", "%#{term}%")
   end
 end
