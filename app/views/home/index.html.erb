@@ -1,9 +1,15 @@
 <h2 id="searchHeading">Welcome to Slacker News</h2>
 <div id="searchBar">
-  <input type="text">
-  <button>Search</button>
+  <input type="text"><!-- Search should happen on keyup not by button click -->
 </div>
 <div id="searchResults">
   <ul>
-    <li class="result"><a href="">Some link text here</a><br><p>some keyword terms here</p><p class="moreInfo">Show More</p></li>
-    <li class="result"><a href="">Some link text here</a><br><p>some keyword terms here</p><p class="moreInfo">Show More</p></li>
+    <% @links.each do |link| %>
+      <li class="result">
+        <a href="<%= link.url %>"><%= link.title %></a><br>
+        <p><%= link.keywords.map(&:name).join(', ') %></p>
+        <a class="moreInfo" href="<%= url_for controller: 'link', action: 'index', id: link.id %>">Show More</a>
+      </li>
+    <% end %>
+  </ul>
+</div>

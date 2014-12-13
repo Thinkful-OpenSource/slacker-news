@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-keywords = Keyword.create([{name: 'code'}, {name: 'car'}, {name: 'javascript'}, {name: 'java'}, {name: 'script'}])
+keys = Keyword.create([{name: 'code'}, {name: 'car'}, {name: 'javascript'}, {name: 'java'}, {name: 'script'}])
+keywords = keys.to_a
 domains = ['google.com', 'slack.com', 'nitrous.io', 'icloud.com', 'microsoft.com']
 posters = ['aric87', 'snarechops', 'grae', 'emily', 'rosuav']
 channels = ['general-discussion','python-discussion','rails-discussion','fewd-discussion','open-source']
@@ -22,5 +23,5 @@ for i in 0..500
       ks << k
     end
   end
-  Link.create(title: "This is link #{i+1}", url: "http://#{domain}/#{channels[rand(5)]}/#{keywords[rand(5)].name}/#{i}", domain: domain, poster: posters[rand(5)], image: images[rand(5)], channel: channels[rand(5)])
+  link = Link.create(title: "This is link #{i+1}", url: "http://#{domain}/#{channels[rand(5)]}/#{keywords[rand(5)].name}/#{i}", domain: domain, poster: posters[rand(5)], image: images[rand(5)], channel: channels[rand(5)], keywords: ks)
 end
