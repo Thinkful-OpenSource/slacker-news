@@ -7,11 +7,7 @@ class Keyword < ActiveRecord::Base
   has_many :keywords_links
   has_many :links, through: :keywords_links
   
-  def self.search(term, page = nil)
-    if page?
-      self.where("name LIKE ?", "%#{term}").limit(100).offset(100 * (page - 1))
-    else
-      self.where("name LIKE ?", "%#{term}%").limit(20)
-    end
+  def self.search(term)
+    return self.where("name LIKE ?", "%#{term}%")
   end
 end

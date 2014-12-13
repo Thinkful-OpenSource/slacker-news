@@ -94,9 +94,13 @@ header img {
   font-size:1em;
 }
 
+#pageContent {
+  height:100%;
+}
+
 #mainContent {
 	margin-top:25px;
-  height:100%;
+  min-height:300px;
 }
 
 footer {
@@ -162,7 +166,7 @@ form {
 }
 
 #bugButton {
-  margin:20px auto;
+  margin:20px 30%;
   width:20%;
 }
 
@@ -174,4 +178,27 @@ label {
 textarea {
   margin-left:10%;
   width:280px;
+}
+
+#linkContent {
+  width:60%;
+  margin:0 auto;
+}
+
+#linkInformation {
+  height:100%;
+}
+
+#suggestEdit {
+  cursor:pointer;
+  margin-top:50px;
+  text-align:center;
+}
+
+#suggestEdit:hover {
+  color:blue;
+}
+
+#linkEdit {
+  display:none;
 }

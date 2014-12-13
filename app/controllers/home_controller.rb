@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   
   # AJAX - Return JSON
   def search # (term, page)
-    @links = Keyword.search(term, page)
+    @links = Link.links_by_keywords(Keyword.search(params[:term]))
+    render 'search'
   end
 end
