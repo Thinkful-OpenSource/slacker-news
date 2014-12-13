@@ -1,11 +1,16 @@
-Submit a bug/Request a feature
-
-<label>Name</label><input type="text">
-<label>e-mail</label><input type="text">
-<label>issue</label>
-          <div class="radioPair">
-					  <input name="issue" type="radio" value="Question">&nbsp;Bug</div>
-          <div class="radioPair">
-					  <input name="issue" type="radio" value="Question">&nbsp;Feature</div>
-<label>Message</label><textarea rows="10" cols="20"></textarea>
-<button>Submit</button>
+<section id="bugContent">
+<h2 class="pageHeading">Submit a bug/Request a feature</h2>
+<form>
+<label>Issue</label>
+   <div class="radioPair">
+		 <input name="issue" type="radio" value="Question">&nbsp;Bug
+		 <input name="issue" type="radio" value="Question">&nbsp;Feature
+   </div>
+ <br/>
+<label id="messageLabel">Message</label><textarea name="message" rows="10"></textarea>
+ <br/><br/>
+<label>E-mail/Slacker Username (optional)</label><input class="bugInput" type="text" name="user">
+  <br/><br/>
+<button id="bugButton">Submit</button>
+</form>
+</section>
