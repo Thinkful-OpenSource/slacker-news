@@ -2,18 +2,25 @@ class LinkController < ApplicationController
   
   def index # (id)
     #Get link by id
+    @link = Link.find(params[:id])
   end
   
   def new
     #Show form to create a new link
+    @link = Link.new
   end
   
   def refine # (id)
     #Show form to refine a link
+    @link = Link.find(params[:id])
   end
   
   def create # (url)
     #Create new link (And send to the scraper for processing)
+    exists = Link.find_by_url(params[:url])
+    if exists.nil?
+      ScrapeJob.perform_later(params[:url])
+    end
   end
   
   def update # (update_params)
@@ -27,4 +34,5 @@ class LinkController < ApplicationController
   def update_params # These are the only items that the user is allowed to update, all other information is obtained by the scraper
     params.require(:link).permit(:title, :keywords)
   end
+  
 end

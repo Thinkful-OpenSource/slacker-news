@@ -92,6 +92,7 @@ Contributing to this open source application is different than working on your o
 1. On GitHub go to https://github.com/Thinkful/slacker-news (make sure you're signed in) and click on the fork button to clone the repo to your account.
 2. Next clone the project to Nitrous or your computer with `git clone https://github.com/<YourUsername>/slacker-news`
 3. Establish a remote for pulling updates from the master by running `git add remote upstream https://github.com/Thinkful/slacker-news`
+4. Contact snarechops on Slack to obtain the test API keys for the project. These are not included in the repo for security reasons.
 
 Now you are all setup to do work on the project. To save your changes run the following commands:
 
@@ -113,3 +114,6 @@ Now if you are happy with your work and you would like to contribute it to the T
 
 * Q: Big red screen with a message about "Migrations" or something like that...
 * A: Run `rake db:migrate`
+
+* Q: Server won't start and mentions something about bundle install?
+* A: Run `bundle install`

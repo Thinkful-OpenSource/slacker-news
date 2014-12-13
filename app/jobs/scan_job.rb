@@ -9,6 +9,12 @@ class ScanJob < ActiveJob::Base
     params = {token: ENV["slack_api_token"], query: args[0]}
     uri.query = URI.encode_www_form(params)
     
-    response = Net::HTTP.get_reponse(uri)
+    response = Net::HTTP.get(uri)
+  end
+  
+  private
+  
+  def process
+    
   end
 end
