@@ -69,21 +69,15 @@ table {
 
 header {
 	width:100%;
-	height:200px;
-  margin-top:25px;
-}
-
-header img {
-	width:20%;
-	float:left;
-  height:75px;
+	height:175px;
+  text-align:center;
 }
 
 #headerText {
-  margin-top:55px;
-	width:60%;
+  margin-top:125px;
 	text-align: center;
 	float:left;
+  width:100%;
 } 
 
 #headerText h1 {
@@ -100,6 +94,7 @@ header img {
 
 #mainContent {
 	margin-top:25px;
+  margin-bottom:60px;
   min-height:300px;
 }
 
@@ -107,20 +102,30 @@ footer {
 	clear: both;
 	position: relative;
 	z-index: 10;
-	height:20px;
-	margin-top: -20px;
+	height:25px;
+	margin-top: -30px;
 	text-align:center;
 }
 
 footer ul {
-	width:33%;
-	margin:0 auto;
+	width:60%;
+  float:left;
 }
 
 footer li {
 	display: inline-block;
 	text-align: center;
-  width:30%;
+  width:15%;
+}
+
+footer img {
+	width:10%;
+  float:left;
+  height:25px;
+}
+
+#slackLogo {
+  margin-left:10%;  
 }
 
 .pageHeading {
@@ -131,6 +136,24 @@ footer li {
 #searchBar {
   width:30%;
   margin:30px auto;
+}
+
+#mainSearch {
+  border: 1px solid black;
+}
+
+#addLink {
+  width:8%;
+  margin-left:46%;
+}
+
+#addLinkForm {
+  background-color:yellow;
+  border:2px solid black;
+  display:none;
+  position:fixed;
+  top:30%;
+  left:35%;
 }
 
 input {
@@ -157,6 +180,10 @@ form {
   margin:30px auto;
 }
 
+.bugInput {
+  border:1px black solid;
+}
+
 .radioPair input {
   width:20px;
 }
@@ -168,6 +195,9 @@ form {
 #bugButton {
   margin:20px 30%;
   width:20%;
+  background-color:white;
+  border:1px black solid;
+  border-radius:1em;
 }
 
 label {
@@ -202,6 +232,14 @@ textarea {
 #linkEdit {
   display:none;
 }
-#linkEdit button {
+
+.linkInput {
+  border:1px black solid;
+}
+
+#linkEditSubmit {
   margin-left:30%;
+  background-color:white;
+  border:1px black solid;
+  border-radius:1em;
 }

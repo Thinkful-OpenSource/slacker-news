@@ -27,6 +27,28 @@ $(function(){
           );
         }
       });
-   };
+   }
   });
+  var addLink = $('#addLink');
+  
+  addLink.mouseenter(function(){
+    $(this).html("Add new Link");
+  })
+  addLink.mouseleave(function(){
+    $(this).html("+");
+  })
+  addLink.click(function(){
+    $('#addLinkForm').show();
+  })
+  $('#linkAddSubmit').click(function(){
+    var newLink = {
+      
+    }
+    $.ajax({
+        url: '/link',
+        type: 'POST',
+        data: {link: newLink}
+      });
+  })
+  
 });

@@ -1,6 +1,17 @@
-<h2 class="pageHeading">Welcome to Slacker News</h2>
 <div id="searchBar">
   <input id="mainSearch" type="text"><!-- Search should happen on keyup not by button click -->
+</div>
+<button id="addLink">+</button>
+<div id="addLinkForm">
+  <form id="linkAdd">
+      <label>Title</label><input class="linkInput" name="title">
+      <br/><br/>
+      <label>URL</label><input class="linkInput" name="url">
+      <br/><br/>
+      <label>Keywords</label><input class="linkInput" name="keywords">
+      <br/><br/>
+      <button id="#linkAddSubmit">Submit</button>
+    </form>
 </div>
 <div id="searchResults">
   <ul>
