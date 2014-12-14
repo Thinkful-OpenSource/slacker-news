@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'link/:id/refine' => 'link#refine'
   put 'link/:id' => 'link#update'
   get 'link/:id' => 'link#index'
+  post 'link/archive' => 'link#archive'
   
   get 'bug' => 'bug#index'
   post 'bug' => 'bug#create'

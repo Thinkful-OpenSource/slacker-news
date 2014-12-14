@@ -18,12 +18,7 @@ page.open(url, function(status){
         }
       };
     });
-    
-    console.log('Title: ' + info.facebook.title);
-    console.log('Site Name: ' + info.facebook.site_name);
-    console.log('Url: ' + info.facebook.url);
-    console.log('Description: ' + info.facebook.description);
-    console.log('Image: ' + info.facebook.image);
+    $.ajax({url: 'https://thinkful-slacker-news.herokuapp.com/link/archive', type: 'POST', data: info});
     phantom.exit();
   });
 });

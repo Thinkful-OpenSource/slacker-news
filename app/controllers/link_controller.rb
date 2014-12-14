@@ -30,6 +30,10 @@ class LinkController < ApplicationController
     #Also do not allow the removal of keywords? Or should we. I see both sides.
   end
   
+  def archive
+    ArchiveScrapeJob.perform_later(params[:info])
+  end
+  
   private
   
   def update_params # These are the only items that the user is allowed to update, all other information is obtained by the scraper
