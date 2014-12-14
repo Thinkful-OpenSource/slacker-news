@@ -39,6 +39,18 @@
       </div>
     </md-dialog>
   </script>
+  <script type="text/ng-template" id="change-link.html">
+    <md-dialog>
+      <md-content>
+        <h3>Change Link Inform</h3>
+        <md-text-float ng-model="title" label="Change title"></md-text-float>
+        <md-text-float ng-model="keyword" label="Add Keywords"></md-text-float>
+      </md-content>
+      <div class="md-actions">
+        <md-button ng-click="save(title,keyword)">Save Link</md-button>
+      </div>
+    </md-dialog>
+  </script>
     </footer>
 </body>
 </html>

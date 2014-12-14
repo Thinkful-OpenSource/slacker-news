@@ -23,11 +23,18 @@ angular.module('slacker', ['ngMaterial'])
   
 }])
 .controller('footerController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
-$scope.addLink = function ($event) {
+  $scope.addLink = function ($event) {
     $mdDialog.show({
       targetEvent: $event,
       templateUrl: 'add-link.html',
       controller: 'AddLinkController'
+    });
+  }
+  $scope.changeLink = function ($event) {
+    $mdDialog.show({
+      targetEvent: $event,
+      templateUrl: 'change-link.html',
+      controller: 'ChangeLinkController'
     });
   }
 }])
@@ -44,6 +51,23 @@ $scope.addLink = function ($event) {
       method: 'POST',
       url: '/link',
       data: {link: {url: url}},
+      headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
+    }).success(success).error(error);
+  }
+}])
+.controller('ChangeLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
+  $scope.save = function(title, keyword){
+    function success(data){
+      $mdToast.show($mdToast.simple().content('Changes Added').capsule(true));
+      $mdDialog.hide();
+    }
+    function error(){
+      
+    }
+    $http({
+      method: 'POST',
+      url: '/link',
+      data: {link: {title: title, keyword:keyword}},
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   }
