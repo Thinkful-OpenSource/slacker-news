@@ -7,6 +7,8 @@ App to scrape Thinkful's Slack for useful and interesting links
 
 Any contributions to the project are welcome. Amazing applications are made when people get together and collaborate, sharing all ideas, and putting them into awesome code. No idea is too small, and no contribution is unwelcome. If you would like to help please fork the project to your account, make your changes, and submit a pull request! (If you need help with this process, please ask in the [open-source community](https://thinkful-students.slack.com/messages/open-source/)). For instructions read the section at the bottom of this readme.
 
+We recommend that you create an environment for yourself by following the workflow instructions below, but as an alternative option we have set-up a community environment that you can use without having to go through the manually setup process. **coming soon**
+
 ##Sections of the project
 
 ### UI
