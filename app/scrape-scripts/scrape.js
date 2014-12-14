@@ -18,11 +18,12 @@ page.open(url, function(status){
         }
       };
     });
-    console.log('Title: ' + info.title);
-    console.log('Site Name: ' + info.site_name);
-    console.log('Url: ' + info.url);
-    console.log('Description: ' + info.description);
-    console.log('Image: ' + info.image);
+    
+    console.log('Title: ' + info.facebook.title);
+    console.log('Site Name: ' + info.facebook.site_name);
+    console.log('Url: ' + info.facebook.url);
+    console.log('Description: ' + info.facebook.description);
+    console.log('Image: ' + info.facebook.image);
     phantom.exit();
   });
 });
