@@ -152,28 +152,6 @@ footer img {
   border: 1px solid black;
 }
 
-#addLink {
-  width:8%;
-  margin-left:46%;
-}
-
-#addLinkForm {
-  background-color:yellow;
-  border:2px solid black;
-  display:none;
-  position:fixed;
-  top:30%;
-  left:35%;
-  padding:10px;
-}
-
-#addLinkForm p {
-  cursor:pointer;
-  position:absolute;
-  top:5px;
-  right:10px;
-  font-size:1.5em;
-}
 
 input {
   position:relative;

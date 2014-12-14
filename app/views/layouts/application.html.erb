@@ -18,14 +18,27 @@
 		<%= yield %>
 	</div>
   </div>
-	<footer>
+	<footer ng-controller="footerController">
     <img id="slackLogo" src="<%= image_path('slack.png') %>" alt="slack logo">
 		<ul>  
-      <md-button id="addLink" ng-click="addLink()">+</md-button>
-      <md-button id="bugReport" ng-click="bugReport">Report a Bug</md-button>
-		  <li><a href="http://www.thinkful.com">Thinkful</a></li>
+     <li><md-button id="addLink" class="footLink" ng-click="addLink()">Add Link</md-button></li>
+      <li><md-button class="footLink" ng-click="changeLink()">Edit a Link</md-button></li>
+      <li><md-button class="footLink" ng-click="bugReport">Report a Bug</md-button></li>
+		  <li><md-button href="http://thinkful.com" class="footLink">Thinkful</md-button></li>
     </ul>
     <img src="<%= image_path('TF_logo.svg') %>" alt="thinkful logo">
-	</footer>
+	
+  <script type="text/ng-template" id="add-link.html">
+    <md-dialog>
+      <md-content>
+        <h3>Add Link</h3>
+        <md-text-float ng-model="url" label="Enter Url"></md-text-float>
+      </md-content>
+      <div class="md-actions">
+        <md-button ng-click="save(url)">Save Link</md-button>
+      </div>
+    </md-dialog>
+  </script>
+    </footer>
 </body>
 </html>
