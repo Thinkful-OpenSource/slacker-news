@@ -4,7 +4,7 @@ class ArchiveScrapeJobJob < ActiveJob::Base
   def perform(*args)
     info = args[0]
     facebook = info.facebook
-    
+    logger.info(info)
   end
   
   private
