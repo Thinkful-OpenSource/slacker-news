@@ -1,7 +1,8 @@
 slacker-news
 ============
 
-App to scrape Thinkful's Slack for useful and interesting links
+This app is designed to scrape Thinkful's Slack for useful and interesting links, find information about them, then create a searchable database. 
+The test app can be viewed at https://thinkful-slacker-news.herokuapp.com/
 
 ## Contributing
 
@@ -117,3 +118,7 @@ Now if you are happy with your work and you would like to contribute it to the T
 
 * Q: Server won't start and mentions something about bundle install?
 * A: Run `bundle install`
+
+## Resources
+Angular Material Design Documentation
+ https://material.angularjs.org/#/
