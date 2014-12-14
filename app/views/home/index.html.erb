@@ -1,27 +1,41 @@
-<div id="searchBar">
-  <input id="mainSearch" type="text"><!-- Search should happen on keyup not by button click -->
-</div>
-<button id="addLink">+</button>
-<div id="addLinkForm">
-  <form id="linkAdd">
-    <p>x</p>
-      <label>Title</label><input class="linkInput" name="title">
-      <br/><br/>
-      <label>URL</label><input class="linkInput" name="url">
-      <br/><br/>
-      <label>Keywords</label><input class="linkInput" name="keywords">
-      <br/><br/>
-      <button id="#linkAddSubmit">Submit</button>
-    </form>
-</div>
-<div id="searchResults">
-  <ul>
-    <% @links.each do |link| %>
-      <li class="result">
-        <a href="<%= link.url %>"><%= link.title %></a><br>
-        <p><%= link.keywords.map(&:name).join(', ') %></p>
-        <a class="moreInfo" href="<%= url_for controller: 'link', action: 'index', id: link.id %>">Show More</a>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<section ng-controller="HomeController">
+  <div id="searchBar">
+    <md-text-float label="How can we help?" ng-model="searchTerm" ng-change="search(searchTerm)"></md-text-float>
+<!--     <input id="mainSearch" type="text" ng-model="searchTerm" ng-change="search(searchTerm)"> -->
+  </div>
+  <md-button id="addLink" ng-click="addLink()">+</md-button>
+  <div id="addLinkForm">
+    <form id="linkAdd">
+      <p>x</p>
+        <label>Title</label><input class="linkInput" name="title">
+        <br/><br/>
+        <label>URL</label><input class="linkInput" name="url">
+        <br/><br/>
+        <label>Keywords</label><input class="linkInput" name="keywords">
+        <br/><br/>
+        <button id="#linkAddSubmit">Submit</button>
+      </form>
+  </div>
+  <md-content id="searchResults">
+    <md-list>
+      <md-item ng-repeat="link in links" ng-click="showLinkDetails(link.id)">
+        <md-item-content>
+          <p><a href="{{link.url}}">{{link.title}}</a></p>
+          <p>{{link.keyword_list}}</p>     
+        </md-item-content>
+      </md-item>
+    </md-list>
+  </md-content>
+  
+  <script type="text/ng-template" id="add-link.html">
+    <md-dialog>
+      <md-content>
+        <h3>Add Link</h3>
+        <md-text-float ng-model="url" label="Enter Url"></md-text-float>
+      </md-content>
+      <div class="md-actions">
+        <md-button ng-click="save(url)">Save Link</md-button>
+      </div>
+    </md-dialog>
+  </script>
+</section>

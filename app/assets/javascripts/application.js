@@ -10,6 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require hammerjs
+//= require angular
+//= require angular-animate
+//= require angular-aria
+//= require angular-material
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks

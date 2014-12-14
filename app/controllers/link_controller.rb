@@ -21,6 +21,7 @@ class LinkController < ApplicationController
     if exists.nil?
       ScrapeJob.perform_later(params[:url])
     end
+    return head :ok
   end
   
   def update # (update_params)
