@@ -3,19 +3,7 @@
     <md-text-float label="How can we help?" ng-model="searchTerm" ng-change="search(searchTerm)"></md-text-float>
 <!--     <input id="mainSearch" type="text" ng-model="searchTerm" ng-change="search(searchTerm)"> -->
   </div>
-  <md-button id="addLink" ng-click="addLink()">+</md-button>
-  <div id="addLinkForm">
-    <form id="linkAdd">
-      <p>x</p>
-        <label>Title</label><input class="linkInput" name="title">
-        <br/><br/>
-        <label>URL</label><input class="linkInput" name="url">
-        <br/><br/>
-        <label>Keywords</label><input class="linkInput" name="keywords">
-        <br/><br/>
-        <button id="#linkAddSubmit">Submit</button>
-      </form>
-  </div>
+  
   <md-content id="searchResults">
     <md-list>
       <md-item ng-repeat="link in links" ng-click="showLinkDetails(link.id)">
