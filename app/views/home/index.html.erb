@@ -3,7 +3,6 @@
     <md-text-float label="How can we help?" ng-model="searchTerm" ng-change="search(searchTerm)"></md-text-float>
 <!--     <input id="mainSearch" type="text" ng-model="searchTerm" ng-change="search(searchTerm)"> -->
   </div>
-  
   <md-content id="searchResults">
     <md-list>
       <md-item ng-repeat="link in links" ng-click="showLinkDetails(link.id)">
@@ -14,16 +13,4 @@
       </md-item>
     </md-list>
   </md-content>
-  
-  <script type="text/ng-template" id="add-link.html">
-    <md-dialog>
-      <md-content>
-        <h3>Add Link</h3>
-        <md-text-float ng-model="url" label="Enter Url"></md-text-float>
-      </md-content>
-      <div class="md-actions">
-        <md-button ng-click="save(url)">Save Link</md-button>
-      </div>
-    </md-dialog>
-  </script>
 </section>
