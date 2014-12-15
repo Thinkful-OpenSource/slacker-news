@@ -6,10 +6,14 @@ angular.module('slacker', ['ngMaterial'])
 .controller('HomeController', ['$scope', '$http', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdDialog, $mdBottomSheet){
   $scope.links = [];
   $scope.searchTerm = '';
+  
+
 
   $scope.search = function (term) {
     console.log(term);
-    if(term.length < 3) {return;}
+    if(term.length > 2) {
+      $http.get('/search.json', {params:{term: term}}).success(success).error(error);
+    return;}
     function success(data, status, headers, config){
       console.log('success');
       $scope.links = data.links;
@@ -18,8 +22,7 @@ angular.module('slacker', ['ngMaterial'])
       console.log('error');
       $scope.error = "Unable to search at this time";
     }
-    $http.get('/search.json', {term: term}).success(success).error(error);
-  };
+  };  
   
   $scope.openBottomSheet = function($event) {
     $mdBottomSheet.show({
@@ -28,7 +31,7 @@ angular.module('slacker', ['ngMaterial'])
     });
   };
 }])
-.controller('footerController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
+.controller('footerController', ['$scope', '$http', '$mdToast', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.addLink = function ($event) {
     $mdDialog.show({
       targetEvent: $event,
@@ -51,6 +54,12 @@ angular.module('slacker', ['ngMaterial'])
      controller: 'AddBugController'
    });
  };
+ $scope.mouseOut = function($event) {
+    $mdBottomSheet.hide();
+ };
+ $scope.listItemClick = function($event) {
+    $mdBottomSheet.hide();
+ };
 }])
 .controller('AddLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.save = function(url){
@@ -67,7 +76,10 @@ angular.module('slacker', ['ngMaterial'])
       data: {link: {url: url}},
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
-  }
+  };
+  $scope.close = function(){
+    $mdDialog.hide();
+  };
 }])
 .controller('ChangeLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
   $scope.save = function(title, keyword){
@@ -85,11 +97,17 @@ angular.module('slacker', ['ngMaterial'])
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   };
+  $scope.close = function(){
+    $mdDialog.hide();
+  };
 }])
-.controller('AddBugController', ['$scope', '$http', function($scope, $http) {
+.controller('AddBugController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog) {
   $scope.types = [{name:'Bug',value:'bug'},{name:'Feature',value:'feature'}];
   $scope.report = function(type, message, user){
-    function success(data){}
+    function success(data){
+      $mdToast.show($mdToast.simple().content('Thank you for your feedback!').capsule(true));
+      $mdDialog.hide();
+    }
     function error(){}
     $http({
       method: 'POST',
@@ -98,5 +116,22 @@ angular.module('slacker', ['ngMaterial'])
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   };
+  $scope.close = function(){s
+    $mdDialog.hide();
+  };
+}])
+.directive('autofocus', ['$timeout', function($timeout){
+ return {
+    restrict: 'A',
+    link: function(scope, element){
+      $timeout(function(){
+        if(element[0].tagName.toUpperCase()){
+          element[0].querySelector('input').focus();
+        } else {
+          element[0].focus();
+        }
+      }, 1000);
+    }
+  }; 
 }]);
  

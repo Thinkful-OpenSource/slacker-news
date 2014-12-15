@@ -12,7 +12,6 @@
 		<div id="headerText">
 			<h1>Slacker News</h1>
 			<p>brought to you by Thinkful</p>
-			<span class="icon ion-bug"></span>
 		</div>
 	</header>
 	<div id="mainContent">
@@ -21,25 +20,45 @@
   </div>
   <footer id="logoFooter">
     <img id="slackLogo" src="<%= image_path('slack.png') %>" alt="slack logo">
-    <img src="<%= image_path('TF_logo.svg') %>" alt="thinkful logo">
+    <span class="gray-text">Options</span>
+    <img id="thinkfulLogo" src="<%= image_path('TF_logo.svg') %>" alt="thinkful logo">
   </footer>
   <script type="text/ng-template" id="bottomSheet.html">
-    <md-bottom-sheet class="md-grid">
-	    <footer ng-controller="footerController">
-        <md-list>
-          <md-item><md-button id="addLink" class="footLink" ng-click="addLink()">Add Link</md-button></md-item>
-          <md-item><md-button class="footLink" ng-click="changeLink()">Edit a Link</md-button></md-item>
-          <md-item><md-button class="footLink" ng-click="bugReport()">Report a Bug</md-button></md-item>
-	       <md-item><md-button href="http://thinkful.com" class="footLink">Thinkful</md-button></md-item>
-        </md-list>
-      </footer>
+    <md-bottom-sheet class="md-grid" ng-controller="footerController" >
+      <md-list id="bottomList" ng-mouseleave="mouseOut()">
+        <md-item>
+          <md-button class="footLink md-raised" ng-click="addLink(); listItemClick()">
+            <span class="icon ion-plus massive" style="display:block;"></span>
+            <p style="font-size:16px;">Add Link</p>
+          </md-button>
+        </md-item>
+        <md-item>
+          <md-button class="footLink md-raised" ng-click="changeLink(); listItemClick()">
+            <span class="icon ion-edit massive"></span>
+            <p>Edit a Link</p>
+          </md-button>
+        </md-item>
+        <md-item>
+          <md-button class="footLink md-raised" ng-click="bugReport(); listItemClick()">
+            <span class="icon ion-bug massive"></span>
+            <p>Report a Bug</p>
+          </md-button>
+        </md-item>
+	      <md-item>
+	        <md-button href="http://thinkful.com" class="footLink md-raised">
+	          <span class="icon ion-home massive"></span>
+	          <p>Thinkful</p>
+	        </md-button>
+	      </md-item>
+      </md-list>
     </md-bottom-sheet>
 	</script>
   <script type="text/ng-template" id="add-link.html">
     <md-dialog>
       <md-content>
+        <span class="icon ion-close-round close-button" ng-click="close()"></span>
         <h3>Add Link</h3>
-        <md-text-float ng-model="url" label="Enter Url"></md-text-float>
+        <md-text-float ng-model="url" label="Enter Url" autofocus></md-text-float>
       </md-content>
       <div class="md-actions">
         <md-button ng-click="save(url)">Save Link</md-button>
@@ -49,8 +68,9 @@
   <script type="text/ng-template" id="change-link.html">
     <md-dialog>
       <md-content>
+        <span class="icon ion-close-round close-button" ng-click="close()"></span>
         <h3>Change Link form</h3>
-        <md-text-float ng-model="title" label="Change title"></md-text-float>
+        <md-text-float ng-model="title" label="Change title" autofocus></md-text-float>
         <md-text-float ng-model="keyword" label="Add Keywords"></md-text-float>
       </md-content>
       <div class="md-actions">
@@ -58,27 +78,17 @@
       </div>
     </md-dialog>
   </script>
-  <script type="text/ng-template" id="add-link.html">
-    <md-dialog>
-      <md-content>
-        <h3>Add Link</h3>
-        <md-text-float ng-model="url" label="Enter Url"></md-text-float>
-      </md-content>
-      <div class="md-actions">
-        <md-button ng-click="save(url)">Save Link</md-button>
-      </div>
-    </md-dialog>
-  </script>
   <script type="text/ng-template" id="add-bug.html">
     <md-dialog>
       <md-content>
+        <span class="icon ion-close-round close-button" ng-click="close()"></span>
         <h3>Report a bug or Request a feature</h3>
         <md-radio-group ng-model="selectedType">
           <md-radio-button ng-repeat="type in types" ng-value="type.value" aria-label="{{type.name}}">
             {{type.name}}
           </md-radio-button>
         </md-radio-group>
-        <textarea ng-model="message" placeholder="What can we do better?"></textarea>
+        <textarea ng-model="message" placeholder="What can we do better?" autofocus></textarea>
         <md-text-float ng-model="user" label="User (optional)"></md-text-float>
       </md-content>
       <div class="md-actions">
