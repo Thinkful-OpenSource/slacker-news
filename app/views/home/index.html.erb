@@ -2,7 +2,7 @@
   <div id="searchBar">
     <md-text-float label="How can we help?" ng-model="searchTerm" ng-keyup="search(searchTerm)" autofocus></md-text-float>
 <!--     <input id="mainSearch" type="text" ng-model="searchTerm" ng-change="search(searchTerm)"> -->
-  <md-progress-circular class="loading-button" ng-show="false" md-diameter="25" md-mode="indeterminate"></md-progress-circular>
+  <md-progress-circular class="loading-button"  md-diameter="25" md-mode="indeterminate"></md-progress-circular>
   </div>
   <md-content id="searchResults">
     <md-list>
@@ -14,5 +14,4 @@
       </md-item>
     </md-list>
   </md-content>
-  <div id="footControl" ng-mouseenter="openBottomSheet()" ></div>
 </section>

@@ -13,17 +13,23 @@ angular.module('slacker', ['ngMaterial'])
     console.log(term);
     if(term.length > 2) {
       $http.get('/search.json', {params:{term: term}}).success(success).error(error);
+      $('.loading-button').show();
     return;}
     function success(data, status, headers, config){
       console.log('success');
+      $('.loading-button').hide();
       $scope.links = data.links;
     }
     function error(data, status, headers, config){
       console.log('error');
+      $('.loading-button').hide();
       $scope.error = "Unable to search at this time";
     }
   };  
   
+  
+}])
+.controller('bodyController', ['$scope', '$http', '$mdToast', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.openBottomSheet = function($event) {
     $mdBottomSheet.show({
       targetEvent:$event,
@@ -31,6 +37,7 @@ angular.module('slacker', ['ngMaterial'])
     });
   };
 }])
+
 .controller('footerController', ['$scope', '$http', '$mdToast', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.addLink = function ($event) {
     $mdDialog.show({
