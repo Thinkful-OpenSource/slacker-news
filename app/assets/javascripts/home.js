@@ -7,8 +7,6 @@ angular.module('slacker', ['ngMaterial'])
   $scope.links = [];
   $scope.searchTerm = '';
   
-
-
   $scope.search = function (term) {
     console.log(term);
     if(term.length > 2) {
@@ -26,8 +24,12 @@ angular.module('slacker', ['ngMaterial'])
       $scope.error = "Unable to search at this time";
     }
   };  
-  
-  
+  $scope.expand = function($event) {
+    $(event.target).removeClass('md-whiteframe-z1').addClass('md-whiteframe-z4');
+  };
+  $scope.shrink = function($event) {
+    $(event.target).removeClass('md-whiteframe-z4').addClass('md-whiteframe-z1');
+  };
 }])
 .controller('bodyController', ['$scope', '$http', '$mdToast', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.openBottomSheet = function($event) {
