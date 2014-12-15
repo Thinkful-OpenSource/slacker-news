@@ -13,13 +13,16 @@ angular.module('slacker', ['ngMaterial'])
     console.log(term);
     if(term.length > 2) {
       $http.get('/search.json', {params:{term: term}}).success(success).error(error);
+      $('.loading-button').show();
     return;}
     function success(data, status, headers, config){
       console.log('success');
+      $('.loading-button').hide();
       $scope.links = data.links;
     }
     function error(data, status, headers, config){
       console.log('error');
+      $('.loading-button').hide();
       $scope.error = "Unable to search at this time";
     }
   };  
