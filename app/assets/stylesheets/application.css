@@ -293,7 +293,13 @@ md-bottom-sheet.md-grid md-item {
   display:none;
 }
 
+
 .frames {
   margin: 10px;
   padding:20px;
+}
+.devTeamItem {
+  margin:30px auto;
+  display:block;
+
 }
