@@ -1,8 +1,9 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
+/*global angular:false */
 angular.module('slacker', ['ngMaterial'])
-.controller('HomeController', ['$scope', '$http', '$mdDialog', function($scope, $http, $mdDialog){
+.controller('HomeController', ['$scope', '$http', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdDialog, $mdBottomSheet){
   $scope.links = [];
   $scope.searchTerm = '';
 
@@ -20,7 +21,12 @@ angular.module('slacker', ['ngMaterial'])
     $http.get('/search.json', {term: term}).success(success).error(error);
   };
   
-  
+  $scope.openBottomSheet = function($event) {
+    $mdBottomSheet.show({
+      targetEvent:$event,
+      templateUrl: 'bottomSheet.html'
+    });
+  };
 }])
 .controller('footerController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
   $scope.addLink = function ($event) {
@@ -30,22 +36,23 @@ angular.module('slacker', ['ngMaterial'])
       controller: 'AddLinkController'
     });
   }
+  
   $scope.changeLink = function ($event) {
     $mdDialog.show({
       targetEvent: $event,
       templateUrl: 'change-link.html',
       controller: 'ChangeLinkController'
     });
-  }
- $scope.reportBug = function ($event) {
+  };
+ $scope.bugReport = function ($event) {
    $mdDialog.show({
      targetEvent: $event,
      templateUrl: 'add-bug.html',
      controller: 'AddBugController'
-   })
- }
+   });
+ };
 }])
-.controller('AddLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
+.controller('AddLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.save = function(url){
     function success(data){
       $mdToast.show($mdToast.simple().content('Link Added').capsule(true));
@@ -72,39 +79,24 @@ angular.module('slacker', ['ngMaterial'])
       
     }
     $http({
-      method: 'POST',
+      method: 'PUT',
       url: '/link',
       data: {link: {title: title, keyword:keyword}},
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
-  }
-}])
-.controller('AddBugController', function($scope, $mdBottomSheet) {
-  $scope.openBottomSheet = function() {
-    $mdBottomSheet.show({
-      template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
-    });
   };
-});
-    }
-    function error(){
-      
-    }
+}])
+.controller('AddBugController', ['$scope', '$http', function($scope, $http) {
+  $scope.types = [{name:'Bug',value:'bug'},{name:'Feature',value:'feature'}];
+  $scope.report = function(type, message, user){
+    function success(data){}
+    function error(){}
     $http({
       method: 'POST',
-      url: '/link',
-      data: {link: {title: title, keyword:keyword}},
+      url: '/bug',
+      data: {bug: {type: type, message:message, user:user}},
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
-  }
+  };
 }]);
-
-$(function(){
-  function commifyKeywords(keywords){
-    var words=[],i=0;
-    for(i=0;i<keywords.length;i++){
-      words.push(keywords[i].name);
-    }
-    return words.join(', ');
-  } 
-});
+ 

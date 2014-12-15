@@ -1,0 +1,6 @@
+// Create a custom Cloud9 runner - similar to the Sublime build system
+// For more information see https://docs.c9.io/custom_runners.html
+{
+    "cmd" : ["bash", "--login", "-c", "cd $file_path && bundle install && rake db:migrate && rails server -p $port -b $ip"],
+    "info" : "Started $project_path$file_name"
+}
