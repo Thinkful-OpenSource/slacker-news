@@ -1,11 +1,14 @@
 slacker-news
 ============
 
-App to scrape Thinkful's Slack for useful and interesting links
+This app is designed to scrape Thinkful's Slack for useful and interesting links, find information about them, then create a searchable database. 
+The test app can be viewed at https://thinkful-slacker-news.herokuapp.com/
 
 ## Contributing
 
 Any contributions to the project are welcome. Amazing applications are made when people get together and collaborate, sharing all ideas, and putting them into awesome code. No idea is too small, and no contribution is unwelcome. If you would like to help please fork the project to your account, make your changes, and submit a pull request! (If you need help with this process, please ask in the [open-source community](https://thinkful-students.slack.com/messages/open-source/)). For instructions read the section at the bottom of this readme.
+
+We recommend that you create an environment for yourself by following the workflow instructions below, but as an alternative option we have set-up a community environment that you can use without having to go through the manually setup process. **coming soon**
 
 ##Sections of the project
 
@@ -60,22 +63,21 @@ This is a Rails application. The following instructions will get you started, bu
 
 1. Installing Rails on your computer can be really simple, but can also be really tricky if it goes wrong. For simplicity's sake please create a free account and start a Rails box at http://Nitrous.io. (This also allows for collaborative editing where more than one person can work on the same box together and it has a chat feature. This can be really cool and may help in the development of this project.)
 
-2. Once your box is done being created, open the IDE and run the following commands in order (some may take awhile, wait for them to finish, I promise it didn't freeze):
+2. Once your box is done being created, contact SnareChops on slack to obtain the API Key then open the IDE and run the following commands (the setup script will take quite awhile, wait for it to finish, I promise it didn't freeze):
 
 ```
 cd workspace
 git clone https://github.com/<YourUsername>/slacker-news
 cd slacker-news
-bundle install
-rake db:setup db:seed
+sh setup.sh <API Key>
 ```
-This will download the application and any dependencies, and set up the database.
+This will install the correct version of ruby, download the application and any dependencies, set up the database, and create a link to the original git repo for updates.
 
-To run the application run
+To run the application with the convenient all-in-one run script run:
 ```
-rails server -b 0.0.0.0
+sh run.sh
 ```
-This will start the rails server. (If not using Nitrous.io remove the `-b 0.0.0.0`) To view the site click on the preview menu item at the top of the page and click on "Port 3000". This will open the site in your browser and you can play around with it like normal.
+This will start the rails server. (If not using Nitrous.io use the normal way to start the server) To view the site click on the preview menu item at the top of the page and click on "Port 3000". This will open the site in your browser and you can play around with it like normal.
 
 To stop the server press `Ctl + C` in the console. If you hit an error in the console, please file an issue in the GitHub repo detailing what happened (as best as you know) and paste the console output into the bug report. This will help us track down issues with the backend stuff. You can restart the server by running the above command again.
 
@@ -91,11 +93,15 @@ Contributing to this open source application is different than working on your o
 
 1. On GitHub go to https://github.com/Thinkful/slacker-news (make sure you're signed in) and click on the fork button to clone the repo to your account.
 2. Next clone the project to Nitrous or your computer with `git clone https://github.com/<YourUsername>/slacker-news`
-3. Establish a remote for pulling updates from the master by running `git add remote upstream https://github.com/Thinkful/slacker-news`
-4. Contact snarechops on Slack to obtain the test API keys for the project. These are not included in the repo for security reasons.
+3. Contact snarechops on Slack to obtain the test API keys for the project. These are not included in the repo for security reasons.
+4. Running the setup.sh script with the API key will set up everything that you need to contibute.
 
-Now you are all setup to do work on the project. To save your changes run the following commands:
+To update your project with the data from the main repo (Get changes from other contributors) run:
+```
+git pull upstream master
+```
 
+To save your changes run the following commands:
 ```
 git pull upstream master
 git add -A
@@ -110,10 +116,6 @@ Now if you are happy with your work and you would like to contribute it to the T
 3. Leave a message about what you are contributing
 4. Your pull request will be merged in once approved
 
-## FAQ / Troubleshooting
-
-* Q: Big red screen with a message about "Migrations" or something like that...
-* A: Run `rake db:migrate`
-
-* Q: Server won't start and mentions something about bundle install?
-* A: Run `bundle install`
+## Resources
+Angular Material Design Documentation
+ https://material.angularjs.org/#/

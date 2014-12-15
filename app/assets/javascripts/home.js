@@ -37,6 +37,7 @@ angular.module('slacker', ['ngMaterial'])
       controller: 'ChangeLinkController'
     });
   }
+<<<<<<< HEAD
  $scope.reportBug = function ($event) {
    $mdDialog.show({
      targetEvent: $event,
@@ -44,6 +45,8 @@ angular.module('slacker', ['ngMaterial'])
      controller: 'AddBugController'
    })
  }
+=======
+>>>>>>> b0082ee5c6c7e2d84d4f8648c4fbdd58f8b88989
 }])
 .controller('AddLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
   $scope.save = function(url){
@@ -67,6 +70,7 @@ angular.module('slacker', ['ngMaterial'])
     function success(data){
       $mdToast.show($mdToast.simple().content('Changes Added').capsule(true));
       $mdDialog.hide();
+<<<<<<< HEAD
     }
     function error(){
       
@@ -86,3 +90,28 @@ angular.module('slacker', ['ngMaterial'])
     });
   };
 });
+=======
+    }
+    function error(){
+      
+    }
+    $http({
+      method: 'POST',
+      url: '/link',
+      data: {link: {title: title, keyword:keyword}},
+      headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
+    }).success(success).error(error);
+  }
+}]);
+
+$(function(){
+  function commifyKeywords(keywords){
+    var words=[],i=0;
+    for(i=0;i<keywords.length;i++){
+      words.push(keywords[i].name);
+    }
+    return words.join(', ');
+  } 
+});
+
+>>>>>>> b0082ee5c6c7e2d84d4f8648c4fbdd58f8b88989
