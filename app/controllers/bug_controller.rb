@@ -1,6 +1,7 @@
 class BugController < ApplicationController
   def index
     #Display form for filing a new bug
+    @bug = Bug.new
   end
   
   def create

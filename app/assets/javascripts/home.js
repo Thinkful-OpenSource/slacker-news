@@ -12,14 +12,17 @@ angular.module('slacker', ['ngMaterial'])
     function success(data, status, headers, config){
       console.log('success');
       $scope.links = data.links;
-    };
+    }
     function error(data, status, headers, config){
       console.log('error');
       $scope.error = "Unable to search at this time";
-    };
+    }
     $http.get('/search.json', {term: term}).success(success).error(error);
   };
   
+  
+}])
+.controller('footerController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
   $scope.addLink = function ($event) {
     $mdDialog.show({
       targetEvent: $event,
@@ -27,6 +30,20 @@ angular.module('slacker', ['ngMaterial'])
       controller: 'AddLinkController'
     });
   }
+  $scope.changeLink = function ($event) {
+    $mdDialog.show({
+      targetEvent: $event,
+      templateUrl: 'change-link.html',
+      controller: 'ChangeLinkController'
+    });
+  }
+ $scope.reportBug = function ($event) {
+   $mdDialog.show({
+     targetEvent: $event,
+     templateUrl: 'add-bug.html',
+     controller: 'AddBugController'
+   })
+ }
 }])
 .controller('AddLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
   $scope.save = function(url){
@@ -44,59 +61,28 @@ angular.module('slacker', ['ngMaterial'])
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   }
-}]);
-
-$(function(){
-  function commifyKeywords(keywords){
-    var words=[],i=0;
-    for(i=0;i<keywords.length;i++){
-      words.push(keywords[i].name);
+}])
+.controller('ChangeLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
+  $scope.save = function(title, keyword){
+    function success(data){
+      $mdToast.show($mdToast.simple().content('Changes Added').capsule(true));
+      $mdDialog.hide();
     }
-    return words.join(', ');
-  }
-  
-//   $('input').keyup(function(){
-//     if ($(this).val().length > 2){
-//       var term = $(this).val();
-//       $.get('/search.json', {term:term}, function (data) {
-//         var $list = $('#searchResults > ul'), i=0, links = data.links;
-//         $list.empty();
-//         for(i=0;i<links.length;i++){
-//           $list.append(
-//             $('<li/>').attr('class', 'result').append(
-//               $('<a/>').attr('href', links[i].url).html(links[i].title),
-//               $('<br>'),
-//               $('<p/>').html(commifyKeywords(links[i].keywords)),
-//               $('<a/>').attr('class', 'moreInfo').attr('href', '/link/' + links[i].id).html('Show More')
-//             )
-//           );
-//         }
-//       });
-//    }
-//   });
-  var addLink = $('#addLink');
-  
-  addLink.mouseenter(function(){
-    $(this).html("Add new Link");
-  })
-  addLink.mouseleave(function(){
-    $(this).html("+");
-  })
-//   addLink.click(function(){
-//     $('#addLinkForm').show();
-//   })
-  $('#addLinkForm p').click(function(){
-    $('#addLinkForm').hide();
-  })
-  $('#linkAddSubmit').click(function(){
-    var newLink = {
+    function error(){
       
     }
-    $.ajax({
-        url: '/link',
-        type: 'POST',
-        data: {link: newLink}
-      });
-  })
-  
+    $http({
+      method: 'POST',
+      url: '/link',
+      data: {link: {title: title, keyword:keyword}},
+      headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
+    }).success(success).error(error);
+  }
+}])
+.controller('AddBugController', function($scope, $mdBottomSheet) {
+  $scope.openBottomSheet = function() {
+    $mdBottomSheet.show({
+      template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
+    });
+  };
 });
