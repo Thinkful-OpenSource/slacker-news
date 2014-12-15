@@ -24,6 +24,9 @@ angular.module('slacker', ['ngMaterial'])
     }
   };  
   
+  
+}])
+.controller('bodyController', ['$scope', '$http', '$mdToast', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.openBottomSheet = function($event) {
     $mdBottomSheet.show({
       targetEvent:$event,
@@ -31,6 +34,7 @@ angular.module('slacker', ['ngMaterial'])
     });
   };
 }])
+
 .controller('footerController', ['$scope', '$http', '$mdToast', '$mdDialog', '$mdBottomSheet', function($scope, $http, $mdToast, $mdDialog, $mdBottomSheet){
   $scope.addLink = function ($event) {
     $mdDialog.show({
