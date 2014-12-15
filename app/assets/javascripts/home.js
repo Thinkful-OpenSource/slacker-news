@@ -61,6 +61,13 @@ angular.module('slacker', ['ngMaterial'])
      controller: 'AddBugController'
    });
  };
+ $scope.devTeam = function ($event) {
+   $mdDialog.show({
+     targetEvent: $event,
+     templateUrl: 'dev-team.html',
+     controller: 'DevTeamController'
+   });
+ };
  $scope.mouseOut = function($event) {
     $mdBottomSheet.hide();
  };
@@ -123,6 +130,11 @@ angular.module('slacker', ['ngMaterial'])
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   };
+  $scope.close = function(){
+    $mdDialog.hide();
+  };
+}])
+.controller('DevTeamController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog) {
   $scope.close = function(){
     $mdDialog.hide();
   };

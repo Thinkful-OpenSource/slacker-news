@@ -292,3 +292,8 @@ md-bottom-sheet.md-grid md-item {
   margin-right:-25px;
   display:none;
 }
+
+.devTeamItem {
+  margin:30px auto;
+  display:block;
+}

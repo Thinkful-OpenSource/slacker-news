@@ -50,6 +50,12 @@
 	          <p>Thinkful</p>
 	        </md-button>
 	      </md-item>
+	      <md-item>
+	        <md-button ng-click="devTeam(); listItemClick()" class="footLink md-raised">
+	          <span class="icon ion-social-freebsd-devil massive"></span>
+	          <p>Dev Team</p>
+	        </md-button>
+	      </md-item>
       </md-list>
     </md-bottom-sheet>
 	</script>
@@ -94,6 +100,26 @@
       <div class="md-actions">
         <md-button ng-click="report(selectedType,message,user)">Report Bug</md-button>
       </div>
+    </md-dialog>
+  </script>
+  <script type="text/ng-template" id="dev-team.html">
+    <md-dialog>
+      <md-content>
+        <span class="icon ion-close-round close-button" ng-click="close()"></span>
+        <h3>Development Team</h3>
+        <md-list id="devTeam">
+        <md-item class="devTeamItem">
+	        <md-button href="https://github.com/SnareChops" class="md-raised">@snarechops
+	        </md-button>
+	      </md-item>
+	     <md-item class="devTeamItem">
+	        <md-button href="https://github.com/gabeaustin" class="md-raised">@gabe1
+	        </md-button>
+	      </md-item>
+	     <md-item class="devTeamItem">
+	        <md-button href="https://github.com/aric87" class="md-raised">@aric87
+	        </md-button>
+	      </md-item>
     </md-dialog>
   </script>
     </footer>
