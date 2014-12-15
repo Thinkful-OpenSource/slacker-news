@@ -119,3 +119,5 @@ Now if you are happy with your work and you would like to contribute it to the T
 ## Resources
 Angular Material Design Documentation
  https://material.angularjs.org/#/
+Ion Icons 
+ https://github.com/driftyco/ionicons
