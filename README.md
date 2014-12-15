@@ -117,7 +117,5 @@ Now if you are happy with your work and you would like to contribute it to the T
 4. Your pull request will be merged in once approved
 
 ## Resources
-Angular Material Design Documentation
- https://material.angularjs.org/#/
-Ion Icons 
- https://github.com/driftyco/ionicons
+* Angular Material Design Documentation https://material.angularjs.org/#/
+* Ion Icons https://github.com/driftyco/ionicons
