@@ -5,13 +5,11 @@
   <md-progress-circular class="loading-button"  md-diameter="25" md-mode="indeterminate"></md-progress-circular>
   </div>
   <md-content id="searchResults">
-    <md-list>
-      <md-item ng-repeat="link in links" ng-click="showLinkDetails(link.id)">
-        <md-item-content>
+    <div layout="column" layout-fill>
+      <md-whiteframe class="frames md-whiteframe-z1" layout="row" layout-align="space-between center" ng-repeat="link in links" ng-click="showLinkDetails(link.id)" ng-mouseenter="expand()" ng-mouseleave="shrink()" >
           <p><a href="{{link.url}}">{{link.title}}</a></p>
           <p>{{link.keyword_list}}</p>     
-        </md-item-content>
-      </md-item>
-    </md-list>
+      </md-whiteframe>
+    </div>
   </md-content>
 </section>
