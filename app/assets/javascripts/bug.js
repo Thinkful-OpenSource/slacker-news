@@ -11,8 +11,8 @@ $(document).ready(function(){
       }
  
       $.ajax({
-        url: '/bug',
-        type: 'POST',
+        url: '/bug',
+        type: 'POST',
         data: {bug: bug}
       });
    });

@@ -37,6 +37,13 @@ angular.module('slacker', ['ngMaterial'])
       controller: 'ChangeLinkController'
     });
   }
+ $scope.reportBug = function ($event) {
+   $mdDialog.show({
+     targetEvent: $event,
+     templateUrl: 'add-bug.html',
+     controller: 'AddBugController'
+   })
+ }
 }])
 .controller('AddLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
   $scope.save = function(url){
@@ -71,6 +78,25 @@ angular.module('slacker', ['ngMaterial'])
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   }
+}])
+.controller('AddBugController', function($scope, $mdBottomSheet) {
+  $scope.openBottomSheet = function() {
+    $mdBottomSheet.show({
+      template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
+    });
+  };
+});
+    }
+    function error(){
+      
+    }
+    $http({
+      method: 'POST',
+      url: '/link',
+      data: {link: {title: title, keyword:keyword}},
+      headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
+    }).success(success).error(error);
+  }
 }]);
 
 $(function(){
@@ -82,4 +108,3 @@ $(function(){
     return words.join(', ');
   } 
 });
-
