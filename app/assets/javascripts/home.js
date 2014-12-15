@@ -123,7 +123,7 @@ angular.module('slacker', ['ngMaterial'])
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   };
-  $scope.close = function(){s
+  $scope.close = function(){
     $mdDialog.hide();
   };
 }])
