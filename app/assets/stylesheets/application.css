@@ -150,6 +150,8 @@ input {
 #searchResults {
   width:50%;
   margin:0 auto;
+  height:800px;
+  overflow-y:scroll;
 }
 
 .moreInfo {
@@ -291,5 +293,6 @@ md-bottom-sheet.md-grid md-item {
   float:right;
   margin-top:-35px;
   margin-right:-25px;
+  
   
 }
