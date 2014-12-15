@@ -37,7 +37,6 @@ angular.module('slacker', ['ngMaterial'])
       controller: 'ChangeLinkController'
     });
   }
-<<<<<<< HEAD
  $scope.reportBug = function ($event) {
    $mdDialog.show({
      targetEvent: $event,
@@ -45,8 +44,6 @@ angular.module('slacker', ['ngMaterial'])
      controller: 'AddBugController'
    })
  }
-=======
->>>>>>> b0082ee5c6c7e2d84d4f8648c4fbdd58f8b88989
 }])
 .controller('AddLinkController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog){
   $scope.save = function(url){
@@ -70,7 +67,6 @@ angular.module('slacker', ['ngMaterial'])
     function success(data){
       $mdToast.show($mdToast.simple().content('Changes Added').capsule(true));
       $mdDialog.hide();
-<<<<<<< HEAD
     }
     function error(){
       
@@ -90,7 +86,6 @@ angular.module('slacker', ['ngMaterial'])
     });
   };
 });
-=======
     }
     function error(){
       
@@ -113,5 +108,3 @@ $(function(){
     return words.join(', ');
   } 
 });
-
->>>>>>> b0082ee5c6c7e2d84d4f8648c4fbdd58f8b88989
