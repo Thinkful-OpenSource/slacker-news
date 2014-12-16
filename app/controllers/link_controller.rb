@@ -32,6 +32,7 @@ class LinkController < ApplicationController
   end
   
   def archive
+    byebug
     ArchiveScrapeJob.perform_later(params[:info])
   end
   

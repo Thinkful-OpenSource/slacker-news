@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="https://api.trello.com/1/client.js?"<%= ENV['trello_api_key'] %>></script>
+
 </head>
 <body ng-app="slacker">
 	<div id="pageContent">
@@ -39,7 +41,7 @@
           </md-button>
         </md-item>
         <md-item>
-          <md-button class="footLink md-raised" ng-click="bugReport(); listItemClick()">
+          <md-button class="footLink md-raised" ng-click="bugReport(); authorize(); listItemClick()">
             <span class="icon ion-bug massive"></span>
             <p>Report a Bug</p>
           </md-button>

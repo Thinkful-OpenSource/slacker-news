@@ -20,3 +20,4 @@ class ReportBugJob < ActiveJob::Base
     response = Net::HTTP.get(uri)
   end
 end
+

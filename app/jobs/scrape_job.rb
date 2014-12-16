@@ -3,6 +3,14 @@ class ScrapeJob < ActiveJob::Base
 
   def perform(*args)
     # Perform a scrape of a link
-    `phantomjs ../scrape-scripts/scrape.js http://music2mayhem.com`
+    byebug
+    system 'pwd'
+    system 'phantomjs /scrape.js http://music2mayhem.com'
+    # if success
+    #   logger.info("Phantomjs launch success")
+    # else
+    #   logger.info("Phantomjs launch fail")
+    #   logger.info($?)
+    # end
   end
 end
