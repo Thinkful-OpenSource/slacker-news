@@ -47,8 +47,7 @@ angular.module('slacker', ['ngMaterial'])
       templateUrl: 'add-link.html',
       controller: 'AddLinkController'
     });
-  }
-  
+  };
   $scope.changeLink = function ($event) {
     $mdDialog.show({
       targetEvent: $event,
@@ -70,6 +69,20 @@ angular.module('slacker', ['ngMaterial'])
      controller: 'DevTeamController'
    });
  };
+   $scope.scrape = function($event){
+    $http({
+      method: 'GET',
+      url: '/scrape',
+      data: {}  
+    }).success(success).error(error);
+    function success(){
+      $mdToast.show($mdToast.simple().content('Win').capsule(true));
+    }
+    function error(){
+      
+    }
+  };
+
  $scope.mouseOut = function($event) {
     $mdBottomSheet.hide();
  };

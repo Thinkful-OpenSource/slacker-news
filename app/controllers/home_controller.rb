@@ -10,4 +10,9 @@ class HomeController < ApplicationController
     expires_now
     render 'search'
   end
+  
+  def scrape
+    ScrapeJob.perform_later()
+    return head :ok
+  end
 end
