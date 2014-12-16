@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get 'search' => 'home#search'
+  get 'scrape' => 'home#scrape'
   
   get 'link/new' => 'link#new'
   post 'link' => 'link#create'

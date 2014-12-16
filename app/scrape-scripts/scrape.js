@@ -1,3 +1,4 @@
+/*global phantom:false */
 var page = require('webpage').create(),
     system = require('system'),
     url = system.args[1];
@@ -5,6 +6,7 @@ page.open(url, function(status){
   page.includeJs('http://code.jquery.com/jquery-1.11.0.min.js', function () {
     var info = page.evaluate(function(){
       return {
+        url: location.href,
         general: {
           description: $('meta[name="description"]').attr('content'),
           keywords: $('meta[name="keywords"]').attr('content')

@@ -3,5 +3,6 @@ class ScrapeJob < ActiveJob::Base
 
   def perform(*args)
     # Perform a scrape of a link
+    `phantomjs ../scrape-scripts/scrape.js http://music2mayhem.com`
   end
 end
