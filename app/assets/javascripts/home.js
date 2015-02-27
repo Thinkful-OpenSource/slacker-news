@@ -133,13 +133,13 @@ angular.module('slacker', ['ngMaterial'])
 }])
 .controller('AddBugController', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog) {
   $scope.types = [{name:'Bug',value:'bug'},{name:'Feature',value:'feature'}];
-    $scope.authorize = function(){
-    Trello.authorize({
-        type: "popup",
-        success: onAuthorize,
-        scope: { write: true, read: true }
-    })
-};
+//     $scope.fix = function(){
+//     Trello.authorize({
+//         type: "popup",
+//         success: onAuthorize,
+//         scope: { write: true, read: true }
+//     })
+// };
   $scope.report = function(type, message, user){
     function success(data){
       $mdToast.show($mdToast.simple().content('Thank you for your feedback!').capsule(true));
@@ -153,7 +153,7 @@ angular.module('slacker', ['ngMaterial'])
       headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}  
     }).success(success).error(error);
   
-    Trello.post("cards", { name:type + ":" + message + "from" + user, due: "null", idList:'Bug / Feature', urlSource:"null" });
+  //   Trello.post("cards", { name:type + ":" + message + "from" + user, due: "null", idList:'Bug / Feature', urlSource:"null" });
   };
   $scope.close = function(){
     $mdDialog.hide();
